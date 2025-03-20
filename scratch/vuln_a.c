@@ -2,15 +2,15 @@
 #include <string.h>
 
 void vulnerable_function(char *input) {
-    char buffer[10];
+    char buffer[8];
     strcpy(buffer, input);
     printf("You entered: %s\n", buffer);
 }
 
 int main() {
-    char input[1024];
+    char input[256];
     printf("Enter a string: ");
-    gets(input);
+    fgets(input, 256, stdin);
     vulnerable_function(input);
     return 0;
 }
